@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Gaya Magnet - Virtual Lab Sains SD</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-magnet.css">
+</head>
+<body>
+    <div class="background">
+        <div class="science-elements">
+            <div class="element"></div>
+            <div class="element"></div>
+        </div>
+    </div>
+
+    <header class="simulasi-header">
+        <div class="header-content">
+            <a href="simulasi.html" class="back-btn">⬅️ Kembali</a>
+            <div class="title">
+                <h1>🧲 SIMULASI GAYA MAGNET</h1>
+                <p>Eksperimen dengan Tarikan dan Tolakan Magnet</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="simulasi-container">
+        <div class="experiment-area">
+            <div class="experiment-info">
+                <h2>🎯 Percobaan: Magnet dan Benda Lain</h2>
+                <p>Perhatikan bagaimana magnet menarik benda logam tetapi tidak menarik benda non-logam!</p>
+            </div>
+
+            <div class="simulation-controls">
+                <div class="control-group">
+                    <label for="objectSelect">Pilih Benda:</label>
+                    <select id="objectSelect" onchange="ubahBenda()">
+                        <option value="paku">Paku (Benda Logam)</option>
+                        <option value="penghapus">Penghapus (Benda Non-Logam)</option>
+                    </select>
+                </div>
+                <button class="start-btn" onclick="mulaiSimulasi()">🧲 Aktifkan Magnet</button>
+                <button class="reset-btn" onclick="resetSimulasi()">🔄 Reset</button>
+            </div>
+
+            <div class="simulation-area">
+                <!-- Meja eksperimen -->
+                <div class="experiment-table"></div>
+
+                <!-- Magnet -->
+                <div class="magnet" id="magnet">
+                    <img src="asset/magnet.png" alt="Magnet" class="magnet-image">
+                    <div class="magnet-label">MAGNET</div>
+                </div>
+
+                <!-- Benda yang bisa dipilih -->
+                <div class="object paku" id="pakuObject">
+                    <img src="asset/paku.png" alt="Paku" class="object-image">
+                    <div class="object-label">PAKU</div>
+                </div>
+
+                <div class="object penghapus" id="penghapusObject" style="display: none;">
+                    <img src="asset/penghapus.png" alt="Penghapus" class="object-image">
+                    <div class="object-label">PENGHAPUS</div>
+                </div>
+
+                <!-- Area tarikan magnet -->
+                <div class="magnetic-field" id="magneticField"></div>
+            </div>
+
+            <div class="data-panel">
+                <div class="data-card">
+                    <h3>📊 Data Pengamatan</h3>
+                    <div class="data-grid">
+                        <div class="data-item">
+                            <span class="data-label">Benda:</span>
+                            <span class="data-value" id="currentObject">-</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Jenis Benda:</span>
+                            <span class="data-value" id="objectType">-</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Gaya Magnet:</span>
+                            <span class="data-value" id="magneticForce">-</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Status:</span>
+                            <span class="data-value" id="status">Siap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conclusion-section">
+                <div class="conclusion-card">
+                    <h3>💡 Kesimpulan</h3>
+                    <div class="conclusion-content">
+                        <p><strong>Magnet menarik paku</strong> karena paku terbuat dari besi (benda magnetis).</p>
+                        <p><strong>Magnet tidak menarik penghapus</strong> karena penghapus terbuat dari karet (benda non-magnetis).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script-magnet.js"></script>
+</body>
+</html>

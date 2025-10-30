@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Gaya Gesek - Virtual Lab Sains SD</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-gesek.css">
+</head>
+<body>
+    <div class="background">
+        <div class="science-elements">
+            <div class="element"></div>
+            <div class="element"></div>
+        </div>
+    </div>
+
+    <header class="simulasi-header">
+        <div class="header-content">
+            <a href="simulasi.html" class="back-btn">⬅️ Kembali</a>
+            <div class="title">
+                <h1>🔄 SIMULASI GAYA GESEK</h1>
+                <p>Eksperimen dengan Gesekan di Permukaan Berbeda</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="simulasi-container">
+        <div class="experiment-area">
+            <div class="experiment-info">
+                <h2>🎯 Percobaan: Mobil di Permukaan Berbeda</h2>
+                <p>Perhatikan bagaimana gaya gesek mempengaruhi gerak mobil!</p>
+            </div>
+
+            <div class="simulation-controls">
+                <div class="control-group">
+                    <label for="surfaceSelect">Pilih Permukaan:</label>
+                    <select id="surfaceSelect" onchange="ubahPermukaan()">
+                        <option value="aspal">Aspal (Gesekan Kecil)</option>
+                        <option value="tanah">Tanah (Gesekan Besar)</option>
+                    </select>
+                </div>
+                <button class="start-btn" onclick="mulaiSimulasi()">🚀 Mulai Simulasi</button>
+                <button class="reset-btn" onclick="resetSimulasi()">🔄 Ulangi</button>
+            </div>
+
+            <div class="simulation-area">
+                <!-- Permukaan Aspal -->
+                <div class="surface asphalt" id="aspalSurface">
+                    <div class="surface-label">ASPAL</div>
+                    <div class="surface-texture"></div>
+                </div>
+
+                <!-- Permukaan Tanah -->
+                <div class="surface soil" id="tanahSurface" style="display: none;">
+                    <div class="surface-label">TANAH</div>
+                    <div class="surface-texture"></div>
+                </div>
+
+                <!-- Mobil dengan gambar PNG -->
+                <div class="car" id="mobil">
+                    <img src="asset/mobil.png" alt="Mobil" class="car-image">
+                </div>
+
+                <!-- Garis finish -->
+                <div class="finish-line" id="finishLine"></div>
+            </div>
+
+            <div class="data-panel">
+                <div class="data-card">
+                    <h3>📊 Data Pengamatan</h3>
+                    <div class="data-grid">
+                        <div class="data-item">
+                            <span class="data-label">Permukaan:</span>
+                            <span class="data-value" id="currentSurface">-</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Waktu Tempuh:</span>
+                            <span class="data-value" id="travelTime">-</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Gaya Gesek:</span>
+                            <span class="data-value" id="frictionForce">-</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Status:</span>
+                            <span class="data-value" id="status">Siap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conclusion-section">
+                <div class="conclusion-card">
+                    <h3>💡 Kesimpulan</h3>
+                    <div class="conclusion-content">
+                        <p><strong>Gaya gesek di aspal lebih kecil</strong> sehingga mobil bergerak lebih cepat dan jauh.</p>
+                        <p><strong>Gaya gesek di tanah lebih besar</strong> sehingga mobil bergerak lebih lambat dan berhenti lebih cepat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script-gesek.js"></script>
+</body>
+</html>

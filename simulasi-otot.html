@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Gaya Otot - Virtual Lab Sains SD</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-otot.css">
+</head>
+<body>
+    <div class="background">
+        <div class="science-elements">
+            <div class="element"></div>
+            <div class="element"></div>
+        </div>
+    </div>
+
+    <header class="simulasi-header">
+        <div class="header-content">
+            <a href="simulasi.html" class="back-btn">⬅️ Kembali</a>
+            <div class="title">
+                <h1>💪 SIMULASI GAYA OTOT</h1>
+                <p>Eksperimen dengan Tenaga Manusia</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="simulasi-container">
+        <div class="experiment-area">
+            <div class="experiment-info">
+                <h2>🎯 Percobaan: Manusia Mendorong Meja</h2>
+                <p>Perhatikan bagaimana gaya otot dapat menggerakkan benda!</p>
+            </div>
+
+            <div class="simulation-controls">
+                <div class="control-group">
+                    <label for="forceSelect">Pilih Kekuatan:</label>
+                    <select id="forceSelect" onchange="ubahKekuatan()">
+                        <option value="lemah">Daya Lemah</option>
+                        <option value="sedang">Daya Sedang</option>
+                        <option value="kuat">Daya Kuat</option>
+                    </select>
+                </div>
+                <button class="start-btn" onclick="mulaiSimulasi()">💪 Mulai Dorong</button>
+                <button class="reset-btn" onclick="resetSimulasi()">🔄 Ulangi</button>
+            </div>
+
+            <div class="simulation-area">
+                <!-- Lantai -->
+                <div class="floor">
+                    <div class="floor-label">LANTAI</div>
+                </div>
+
+                <!-- Manusia -->
+                <div class="human" id="human">
+                    <img src="asset/manusia.png" alt="Manusia" class="human-image">
+                    <div class="human-label">MANUSIA</div>
+                </div>
+
+                <!-- Meja -->
+                <div class="table" id="table">
+                    <img src="asset/meja.png" alt="Meja" class="table-image">
+                    <div class="table-label">MEJA</div>
+                </div>
+
+                <!-- Efek gaya otot -->
+                <div class="muscle-effect" id="muscleEffect"></div>
+
+                <!-- Garis finish -->
+                <div class="finish-line" id="finishLine"></div>
+            </div>
+
+            <div class="data-panel">
+                <div class="data-card">
+                    <h3>📊 Data Pengamatan</h3>
+                    <div class="data-grid">
+                        <div class="data-item">
+                            <span class="data-label">Kekuatan Otot:</span>
+                            <span class="data-value" id="currentForce">-</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Waktu Tempuh:</span>
+                            <span class="data-value" id="travelTime">-</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Gaya yang Dihasilkan:</span>
+                            <span class="data-value" id="muscleForce">-</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Status:</span>
+                            <span class="data-value" id="status">Siap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conclusion-section">
+                <div class="conclusion-card">
+                    <h3>💡 Kesimpulan</h3>
+                    <div class="conclusion-content">
+                        <p><strong>Gaya otot adalah gaya yang dihasilkan oleh makhluk hidup</strong> menggunakan tenaga dari otot tubuh.</p>
+                        <p><strong>Semakin kuat gaya otot</strong> yang diberikan, semakin cepat dan jauh benda dapat bergerak.</p>
+                        <p><strong>Gaya otot dapat mengubah:</strong> benda diam menjadi bergerak, arah gerak benda, dan menghentikan gerak benda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script-otot.js"></script>
+</body>
+</html>

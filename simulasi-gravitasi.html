@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Gaya Gravitasi - Virtual Lab Sains SD</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-gravitasi.css">
+</head>
+<body>
+    <div class="background">
+        <div class="science-elements">
+            <div class="element"></div>
+            <div class="element"></div>
+        </div>
+    </div>
+
+    <header class="simulasi-header">
+        <div class="header-content">
+            <a href="simulasi.html" class="back-btn">⬅️ Kembali</a>
+            <div class="title">
+                <h1>🌍 SIMULASI GAYA GRAVITASI</h1>
+                <p>Eksperimen dengan Buah Jatuh dari Pohon</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="simulasi-container">
+        <div class="experiment-area">
+            <div class="experiment-info">
+                <h2>🎯 Percobaan: Buah Jatuh dari Pohon</h2>
+                <p>Perhatikan bagaimana gaya gravitasi menarik buah ke bawah!</p>
+            </div>
+
+            <div class="simulation-controls">
+                <div class="control-group">
+                    <label for="fruitSelect">Pilih Jenis Buah:</label>
+                    <select id="fruitSelect" onchange="ubahBuah()">
+                        <option value="apel">Apel 🍎</option>
+                        <option value="jeruk">Jeruk 🍊</option>
+                        <option value="mangga">Mangga 🥭</option>
+                        <option value="semua">Semua Buah</option>
+                    </select>
+                </div>
+                <button class="start-btn" onclick="mulaiSimulasi()">🍃 Mulai Jatuh</button>
+                <button class="reset-btn" onclick="resetSimulasi()">🔄 Ulangi</button>
+            </div>
+
+            <div class="simulation-area">
+                <!-- Langit -->
+                <div class="sky"></div>
+                
+                <!-- Tanah -->
+                <div class="ground">
+                    <div class="ground-label">TANAH</div>
+                </div>
+
+                <!-- Pohon -->
+                <div class="tree-container" id="treeContainer">
+    <div class="tree-label">POHON</div>
+    <div class="tree" id="tree">
+        <!-- Gambar pohon akan dimasukkan via JavaScript -->
+    </div>      
+                <!-- Efek gravitasi -->
+                <div class="gravity-effect" id="gravityEffect"></div>
+            </div>
+
+            <div class="data-panel">
+                <div class="data-card">
+                    <h3>📊 Data Pengamatan</h3>
+                    <div class="data-grid">
+                        <div class="data-item">
+                            <span class="data-label">Jenis Buah:</span>
+                            <span class="data-value" id="currentFruit">-</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Waktu Jatuh:</span>
+                            <span class="data-value" id="fallTime">-</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Gaya Gravitasi:</span>
+                            <span class="data-value" id="gravityForce">-</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Status:</span>
+                            <span class="data-value" id="status">Siap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conclusion-section">
+                <div class="conclusion-card">
+                    <h3>💡 Kesimpulan</h3>
+                    <div class="conclusion-content">
+                        <p><strong>Gaya gravitasi adalah gaya tarik-menarik yang dimiliki bumi</strong> yang menarik semua benda ke pusat bumi.</p>
+                        <p><strong>Semua benda akan jatuh ke bawah</strong> karena pengaruh gaya gravitasi bumi.</p>
+                        <p><strong>Gaya gravitasi membuat kita tidak melayang</strong> dan dapat berdiri di permukaan bumi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script-gravitasi.js"></script>
+</body>
+</html>

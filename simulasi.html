@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilihan Simulasi - Virtual Lab Sains SD</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-simulasi.css">
+</head>
+<body>
+    <div class="background">
+        <div class="lab-elements">
+            <div class="flask"></div>
+            <div class="flask"></div>
+        </div>
+    </div>
+
+    <header class="simulasi-header">
+        <div class="header-content">
+            <a href="index.html" class="back-btn">⬅️ Kembali</a>
+            <div class="title">
+                <h1>🔬 SIMULASI INTERAKTIF</h1>
+                <p>Pilih Jenis Gaya untuk Eksperimen Virtual</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="lab-container">
+        <div class="lab-bench">
+            <div class="welcome-section">
+                <h2>🎯 Pilih Eksperimen Gaya</h2>
+                <p>Pelajari berbagai jenis gaya melalui simulasi interaktif!</p>
+            </div>
+
+            <div class="equipment-grid">
+                <a href="simulasi-gesek.html" class="equipment-card">
+                    <div class="equipment-icon">🔄</div>
+                    <div class="equipment-name">Gaya Gesek</div>
+                    <div class="equipment-desc">Eksperimen dengan gesekan pada permukaan berbeda</div>
+                    <div class="equipment-hint">🚀 Klik untuk membuka simulasi</div>
+                </a>
+
+                <a href="simulasi-magnet.html" class="equipment-card">
+                    <div class="equipment-icon">🧲</div>
+                    <div class="equipment-name">Gaya Magnet</div>
+                    <div class="equipment-desc">Pelajari tarikan dan tolakan magnet</div>
+                    <div class="equipment-hint">🚀 Klik untuk membuka simulasi</div>
+                </a>
+
+                <a href="simulasi-pegas.html" class="equipment-card">
+                    <div class="equipment-icon">💨</div>
+                    <div class="equipment-name">Gaya Pegas</div>
+                    <div class="equipment-desc">Eksperimen dengan benda elastis</div>
+                    <div class="equipment-hint">🚀 Klik untuk membuka simulasi</div>
+                </a>
+
+                <a href="simulasi-otot.html" class="equipment-card">
+                    <div class="equipment-icon">💪</div>
+                    <div class="equipment-name">Gaya Otot</div>
+                    <div class="equipment-desc">Simulasi penggunaan tenaga manusia</div>
+                    <div class="equipment-hint">🚀 Klik untuk membuka simulasi</div>
+                </a>
+
+                <a href="simulasi-gravitasi.html" class="equipment-card">
+                    <div class="equipment-icon">🌍</div>
+                    <div class="equipment-name">Gaya Gravitasi</div>
+                    <div class="equipment-desc">Pelajari pengaruh gravitasi bumi</div>
+                    <div class="equipment-hint">🚀 Klik untuk membuka simulasi</div>
+                </a>
+            </div>
+
+            <div class="instruction-section">
+                <div class="instruction-card">
+                    <h3>📖 Cara Menggunakan Simulasi</h3>
+                    <ol>
+                        <li><strong>Pilih jenis gaya</strong> yang ingin dipelajari</li>
+                        <li><strong>Ikuti petunjuk</strong> dalam setiap simulasi</li>
+                        <li><strong>Amati perubahan</strong> yang terjadi</li>
+                        <li><strong>Eksperimen</strong> dengan pengaturan berbeda</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.equipment-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

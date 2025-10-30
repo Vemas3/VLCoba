@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Gaya - Laboratorium Virtual SD</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-materi.css">
+</head>
+<body>
+    <div class="background">
+        <div class="science-elements">
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+        </div>
+    </div>
+
+    <header class="materi-header">
+        <div class="header-content">
+            <a href="index.html" class="back-btn">⬅️ Kembali ke Menu Utama</a>
+            <div class="title">
+                <h1>📚 MATERI PEMBELAJARAN</h1>
+                <p>Jenis-Jenis Gaya dalam Kehidupan Sehari-hari</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="materi-nav">
+        <div class="nav-container">
+            <button class="nav-btn active" onclick="bukaBab('pengertian')">1. Pengertian</button>
+            <button class="nav-btn" onclick="bukaBab('gaya-gesek')">2. Gaya Gesek</button>
+            <button class="nav-btn" onclick="bukaBab('gaya-magnet')">3. Gaya Magnet</button>
+            <button class="nav-btn" onclick="bukaBab('gaya-pegas')">4. Gaya Pegas</button>
+            <button class="nav-btn" onclick="bukaBab('gaya-otot')">5. Gaya Otot</button>
+            <button class="nav-btn" onclick="bukaBab('gaya-gravitasi')">6. Gaya Gravitasi</button>
+            <button class="nav-btn" onclick="bukaBab('kuis')">7. Kuis</button>
+        </div>
+    </nav>
+
+    <main class="materi-content">
+        <!-- Bab Pengertian -->
+        <section id="pengertian" class="bab active">
+            <div class="bab-header">
+                <h2>🔍 Apa itu Gaya?</h2>
+                <div class="bab-number">Bab 1</div>
+            </div>
+            
+            <div class="content-grid">
+                <div class="text-content">
+                    <div class="definition-card">
+                        <h3>📖 Definisi Gaya</h3>
+                        <p><strong>Gaya</strong> adalah <span class="highlight">tarikan atau dorongan</span> yang dapat mengubah:</p>
+                        <ul>
+                            <li>🎯 <strong>Gerak benda</strong> (diam → bergerak, bergerak → diam)</li>
+                            <li>🔄 <strong>Arah gerak benda</strong></li>
+                            <li>📐 <strong>Bentuk benda</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="example-card">
+                        <h3>💡 Ciri-ciri Gaya:</h3>
+                        <div class="example-item">
+                            <div class="example-icon">👆</div>
+                            <div class="example-text">
+                                <strong>Dapat dirasakan</strong> tetapi tidak dapat dilihat
+                            </div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-icon">📏</div>
+                            <div class="example-text">
+                                <strong>Memiliki besar dan arah</strong>
+                            </div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-icon">⚡</div>
+                            <div class="example-text">
+                                <strong>Dapat mempengaruhi keadaan benda</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bab Gaya Gesek -->
+        <section id="gaya-gesek" class="bab">
+            <div class="bab-header">
+                <h2>🔄 Gaya Gesek</h2>
+                <div class="bab-number">Bab 2</div>
+            </div>
+
+            <div class="jenis-detail">
+                <div class="detail-content">
+                    <div class="definition-box">
+                        <h3>📖 Pengertian Gaya Gesek</h3>
+                        <p><strong>Gaya gesek</strong> adalah gaya yang terjadi saat dua benda saling bergesekan.</p>
+                    </div>
+
+                    <div class="characteristics">
+                        <h3>💡 Ciri-ciri Gaya Gesek:</h3>
+                        <div class="char-item">
+                            <div class="char-icon">🔄</div>
+                            <div class="char-text">
+                                <strong>Arahnya berlawanan</strong> dengan arah gerak benda
+                            </div>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-icon">👟</div>
+                            <div class="char-text">
+                                <strong>Membuat kita tidak terpeleset</strong> saat berjalan
+                            </div>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-icon">🛑</div>
+                            <div class="char-text">
+                                <strong>Dapat menghentikan gerak</strong> benda
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="examples">
+                        <h3>🌍 Contoh dalam Kehidupan:</h3>
+                        <div class="example-grid">
+                            <div class="example-card-small">
+                                <div class="ex-icon">👟</div>
+                                <p>Berjalan di lantai</p>
+                            </div>
+                            <div class="example-card-small">
+                                <div class="ex-icon">🚲</div>
+                                <p>Mengerem sepeda</p>
+                            </div>
+                            <div class="example-card-small">
+                                <div class="ex-icon">✏️</div>
+                                <p>Menulis di papan tulis</p>
+                            </div>
+                            <div class="example-card-small">
+                                <div class="ex-icon">🧹</div>
+                                <p>Menyapu lantai</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bab Gaya Magnet -->
+        <section id="gaya-magnet" class="bab">
+            <div class="bab-header">
+                <h2>🧲 Gaya Magnet</h2>
+                <div class="bab-number">Bab 3</div>
+            </div>
+
+            <div class="jenis-detail">
+                <div class="detail-content">
+                    <div class="definition-box">
+                        <h3>📖 Pengertian Gaya Magnet</h3>
+                        <p><strong>Gaya magnet</strong> adalah tarikan atau dorongan yang terjadi karena benda magnet. Magnet adalah benda kuat dari besi yang memiliki gaya magnet.</p>
+                    </div>
+
+                    <div class="characteristics">
+                        <h3>💡 Sifat-sifat Magnet:</h3>
+                        <div class="char-item">
+                            <div class="char-icon">🧭</div>
+                            <div class="char-text">
+                                <strong>Memiliki dua kutub</strong> - Utara dan Selatan
+                            </div>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-icon">🔗</div>
+                            <div class="char-text">
+                                <strong>Kutub sama tolak-menolak</strong>, kutub berbeda tarik-menarik
+                            </div>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-icon">📌</div>
+                            <div class="char-text">
+                                <strong>Dapat menarik benda logam</strong> tertentu
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="examples">
+                        <h3>🌍 Contoh dalam Kehidupan:</h3>
+                        <div class="example-grid">
+                            <div class="example-card-small">
+                                <div class="ex-icon">🧲</div>
+                                <p>Magnet di papan tulis</p>
+                            </div>
+                            <div class="example-card-small">
+                                <div class="ex-icon">🚪</div>
+                                <p>Pintu kulkas menutup</p>
+                            </div>
+                            <div class="example-card-small">
+                                <div class="ex-icon">🧭</div>
+                                <p>Kompas menunjuk arah</p>
+                            </div>
+                            <div class="example-card-small">
+                                <div class="ex-icon">📌</div>
+                                <p>Magnet menarik paku</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bab Gaya Pegas -->
+        <section id="gaya-pegas" class="bab">
+            <div class="bab-header">
+                <h2>💨 Gaya Pegas</h2>
+                <div class="bab-number">Bab 4</div>
+            </div>
+
+            <div class="jenis-detail">
+                <div class="detail-content">
+                    <div class="definition-box">
+                        <h3>📖 Pengertian Gaya Pegas</h3>
+                        <p><strong>Gaya pegas</strong> terjadi pada benda seperti karet atau pegas, yaitu benda yang dapat mempertahankan bentuknya dan kembali menjadi bentuk semula setelah diberi gaya.</p>
+                    </div>
+
+                    <div class="characteristics">
+                        <h3>💡 Ciri-ciri Gaya Pegas:</h3>
+                        <div class="char-item">
+                            <div class="char-icon">↔️</div>
+                            <div class="char-text">
+                                <strong>Dapat ditekan dan ditarik</strong>
+                            </div>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-icon">🔄</div>
+                            <div class="char-text">
+                                <strong>Kembali ke bentuk semula</strong> setelah gaya hilang
+                            </div>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-icon">⚡</div>
+                            <div class="char-text">
+                                <strong>Menyimpan energi</strong> ketika ditekan/ditarik
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="examples">
+                        <h3>🌍 Contoh dalam Kehidupan:</h3>
+                        <div class="example-grid">
+                            <div class="example-card-small">
+                                <div class="ex-icon">🚲</div>
+                                <p>Jok sepeda berpegas</p>
+                            </div>
+                            <div class="example-card-small">
+                                <div class="ex-icon">🏹</div>
+                                <p>Busur panah melesat</p>
+                            </div>
+                            <div class="example-card-small">
+                                <div class="ex-icon">🛏️</div>
+                                <p>Kasur spring bed</p>
+                            </div>
+                            <div class="example-card-small">
+                                <div class="ex-icon">🎯</div>
+                                <p>Ketapel mainan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bab Gaya Otot -->
+        <section id="gaya-otot" class="bab">
+            <div class="bab-header">
+                <h2>💪 Gaya Otot</h2>
+                <div class="bab-number">Bab 5</div>
+            </div>
+
+            <div class="jenis-detail">
+                <div class="detail-content">
+                    <div class="definition-box">
+                        <h3>📖 Pengertian Gaya Otot</h3>
+                        <p><strong>Gaya otot</strong> adalah gaya yang dikeluarkan dari manusia atau hewan menggunakan otot pada tubuh mereka.</p>
+                    </div>
+
+                    <div class="characteristics">
+                        <h3>💡 Ciri-ciri Gaya Otot:</h3>
+                        <div class="char-item">
+                            <div class="char-icon">👨‍👩‍👧‍👦</div>
+                            <div class="char-text">
+                                <strong>Dihasilkan makhluk hidup</strong> (manusia/hewan)
+                            </div>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-icon">💪</div>
+                            <div class="char-text">
+                                <strong>Menggunakan energi tubuh</strong>
+                            </div>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-icon">🎯</div>
+                            <div class="char-text">
+                                <strong>Dapat dikendalikan</strong> sesuai keinginan
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="examples">
+                        <h3>🌍 Contoh dalam Kehidupan:</h3>
+                        <div class="example-grid">
+                            <div class="example-card-small">
+                                <div class="ex-icon">🚪</div>
+                                <p>Membuka pintu</p>
+                            </div>
+                            <div class="example-card-small">
+                                <div class="ex-icon">📚</div>
+                                <p>Mengangkat tas</p>
+                            </div>
+                            <div class="example-card-small">
+                                <div class="ex-icon">🚲</div>
+                                <p>Mengayuh sepeda</p>
+                            </div>
+                            <div class="example-card-small">
+                                <div class="ex-icon">🏀</div>
+                                <p>Melempar bola</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bab Gaya Gravitasi -->
+        <section id="gaya-gravitasi" class="bab">
+            <div class="bab-header">
+                <h2>🌍 Gaya Gravitasi</h2>
+                <div class="bab-number">Bab 6</div>
+            </div>
+
+            <div class="jenis-detail">
+                <div class="detail-content">
+                    <div class="definition-box">
+                        <h3>📖 Pengertian Gaya Gravitasi</h3>
+                        <p><strong>Gaya gravitasi</strong> adalah gaya yang menarik benda ke pusat gravitasi (bumi).</p>
+                    </div>
+
+                    <div class="characteristics">
+                        <h3>💡 Ciri-ciri Gaya Gravitasi:</h3>
+                        <div class="char-item">
+                            <div class="char-icon">⬇️</div>
+                            <div class="char-text">
+                                <strong>Selalu menarik ke bawah</strong> (pusat bumi)
+                            </div>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-icon">🌎</div>
+                            <div class="char-text">
+                                <strong>Dihasilkan oleh bumi</strong>
+                            </div>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-icon">⚖️</div>
+                            <div class="char-text">
+                                <strong>Membuat benda memiliki berat</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="examples">
+                        <h3>🌍 Contoh dalam Kehidupan:</h3>
+                        <div class="example-grid">
+                            <div class="example-card-small">
+                                <div class="ex-icon">🍎</div>
+                                <p>Buah jatuh dari pohon</p>
+                            </div>
+                            <div class="example-card-small">
+                                <div class="ex-icon">📱</div>
+                                <p>HP terjatuh ke lantai</p>
+                            </div>
+                            <div class="example-card-small">
+                                <div class="ex-icon">🌧️</div>
+                                <p>Air hujan turun</p>
+                            </div>
+                            <div class="example-card-small">
+                                <div class="ex-icon">👦</div>
+                                <p>Kita tidak melayang</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fun-fact">
+                        <h3>💡 Fakta Menarik!</h3>
+                        <p>Tanpa gaya gravitasi, kita akan melayang-layang di udara seperti astronot di bulan! 🌕</p>
+                        <p>Gaya gravitasi bulan menyebabkan air laut pasang surut! 🌊</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bab Kuis -->
+        <section id="kuis" class="bab">
+            <div class="bab-header">
+                <h2>🎮 Kuis Interaktif</h2>
+                <div class="bab-number">Bab 7</div>
+            </div>
+
+            <div class="kuis-container">
+                <div class="question-card">
+                    <h3>Pertanyaan 1:</h3>
+                    <p>Gaya apa yang terjadi saat dua benda saling bergesekan?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="jawabKuis(1, 'A')">A. Gaya Otot</button>
+                        <button class="option-btn" onclick="jawabKuis(1, 'B')">B. Gaya Gesek</button>
+                        <button class="option-btn" onclick="jawabKuis(1, 'C')">C. Gaya Magnet</button>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h3>Pertanyaan 2:</h3>
+                    <p>Gaya apa yang dihasilkan manusia menggunakan otot tubuh?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="jawabKuis(2, 'A')">A. Gaya Pegas</button>
+                        <button class="option-btn" onclick="jawabKuis(2, 'B')">B. Gaya Otot</button>
+                        <button class="option-btn" onclick="jawabKuis(2, 'C')">C. Gaya Gravitasi</button>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h3>Pertanyaan 3:</h3>
+                    <p>Gaya apa yang menarik benda ke pusat bumi?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="jawabKuis(3, 'A')">A. Gaya Magnet</button>
+                        <button class="option-btn" onclick="jawabKuis(3, 'B')">B. Gaya Gravitasi</button>
+                        <button class="option-btn" onclick="jawabKuis(3, 'C')">C. Gaya Listrik</button>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h3>Pertanyaan 4:</h3>
+                    <p>Benda seperti karet yang kembali ke bentuk semula menggunakan gaya apa?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="jawabKuis(4, 'A')">A. Gaya Gesek</button>
+                        <button class="option-btn" onclick="jawabKuis(4, 'B')">B. Gaya Otot</button>
+                        <button class="option-btn" onclick="jawabKuis(4, 'C')">C. Gaya Pegas</button>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h3>Pertanyaan 5:</h3>
+                    <p>Gaya tarik-menarik pada benda magnet disebut?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="jawabKuis(5, 'A')">A. Gaya Gravitasi</button>
+                        <button class="option-btn" onclick="jawabKuis(5, 'B')">B. Gaya Magnet</button>
+                        <button class="option-btn" onclick="jawabKuis(5, 'C')">C. Gaya Gesek</button>
+                    </div>
+                </div>
+
+                <div class="score-card">
+                    <h3>Skor Kamu: <span id="score">0</span>/5</h3>
+                    <button class="reset-btn" onclick="resetKuis()">🔄 Coba Lagi</button>
+                </div>
+
+                <div class="kuis-buttons">
+                    <a href="index.html" class="menu-btn">🏠 Kembali ke Menu Utama</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="navigation-buttons">
+        <button class="nav-prev" onclick="babSebelumnya()">⬅️ Sebelumnya</button>
+        <button class="nav-next" onclick="babBerikutnya()">Berikutnya ➡️</button>
+    </div>
+
+    <script src="script-materi.js"></script>
+</body>
+</html>
