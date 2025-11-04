@@ -1,4 +1,4 @@
-/* Styles khusus untuk simulasi gaya otot */
+/* Styles khusus untuk simulasi gaya otot - FINAL SOLUTION */
 .simulasi-header {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
@@ -164,7 +164,7 @@
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
-/* Manusia - GAMBAR SUDAH MIRROR */
+/* Manusia - ELIMINASI SEMUA CELAH */
 .human {
     position: absolute;
     bottom: 50px;
@@ -177,7 +177,13 @@
     width: 120px;
     height: auto;
     filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
-    /* TIDAK PERLU transform: scaleX(-1) LAGI */
+    /* ELIMINASI MARGIN/PADDING */
+    display: block;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    border: none;
+    outline: none;
 }
 
 .human-label {
@@ -193,11 +199,11 @@
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
-/* Meja - POSISI SANGAT DEKAT DENGAN MANUSIA */
+/* Meja - POSISI SANGAT DEKAT OVERLAP SEDIKIT */
 .table {
     position: absolute;
-    bottom: 40px;
-    left: 160px; /* DIUBAH MENJADI SANGAT DEKAT - hanya 40px dari manusia */
+    bottom: 60px;
+    left: 215px; /* OVERLAP 5px dengan manusia */
     z-index: 15;
     transition: all 2s ease;
 }
@@ -206,6 +212,13 @@
     width: 150px;
     height: auto;
     filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+    /* ELIMINASI MARGIN/PADDING */
+    display: block;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    border: none;
+    outline: none;
 }
 
 .table-label {
@@ -250,11 +263,11 @@
     border-radius: 5px;
 }
 
-/* Efek gaya otot - POSISI DI ANTARA MANUSIA DAN MEJA */
+/* Efek gaya otot - DI TENGAH OVERLAP */
 .muscle-effect {
     position: absolute;
     bottom: 130px;
-    left: 140px; /* DIUBAH - tepat di antara manusia dan meja */
+    left: 205px; /* POSISI DI TENGAH OVERLAP */
     width: 60px;
     height: 30px;
     background: radial-gradient(circle, rgba(255, 152, 0, 0.4) 0%, transparent 70%);
@@ -404,7 +417,12 @@
     display: none;
 }
 
-/* Responsive Design */
+/* AUTO-ADJUST SCRIPT */
+.simulation-area.loaded .table {
+    left: 215px; /* Position setelah load */
+}
+
+/* Responsive Design - REVISI OVERLAP */
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
@@ -443,7 +461,7 @@
     }
 
     .table {
-        left: 120px; /* DIUBAH - sangat dekat, hanya 20px gap */
+        left: 145px; /* OVERLAP 5px di tablet */
         bottom: 50px;
     }
 
@@ -452,7 +470,7 @@
     }
 
     .muscle-effect {
-        left: 110px; /* DIUBAH - tepat di antara manusia dan meja */
+        left: 135px; /* POSISI DI TENGAH OVERLAP */
         bottom: 120px;
     }
 }
@@ -488,7 +506,7 @@
     }
 
     .table {
-        left: 90px; /* DIUBAH - sangat dekat, hanya 10px gap */
+        left: 105px; /* OVERLAP 5px di mobile */
         bottom: 40px;
     }
 
@@ -497,7 +515,16 @@
     }
 
     .muscle-effect {
-        left: 70px; /* DIUBAH - tepat di antara manusia dan meja */
+        left: 95px; /* POSISI DI TENGAH OVERLAP */
         bottom: 110px;
     }
+}
+
+/* FALLBACK POSITION - JIKA MASIH ADA CELAH */
+.simulation-area.force-touch .table {
+    left: 210px !important; /* LEBIH AGRESIF */
+}
+
+.simulation-area.force-touch .human {
+    left: 102px !important; /* GESER SEDIKIT KE KANAN */
 }

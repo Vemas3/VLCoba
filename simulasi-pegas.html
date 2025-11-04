@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Gaya Pegas - Virtual Lab Sains SD</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-pegas.css">
+</head>
+<body>
+    <div class="background">
+        <div class="science-elements">
+            <div class="element"></div>
+            <div class="element"></div>
+        </div>
+    </div>
+
+    <header class="simulasi-header">
+        <div class="header-content">
+            <a href="simulasi.html" class="back-btn">⬅️ Kembali</a>
+            <div class="title">
+                <h1>💨 SIMULASI GAYA PEGAS</h1>
+                <p>Eksperimen dengan Trampolin</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="simulasi-container">
+        <div class="experiment-area">
+            <div class="experiment-info">
+                <h2>🎯 Percobaan: Manusia Melompat di Trampolin</h2>
+                <p>Perhatikan bagaimana gaya pegas pada trampolin membuat manusia melompat tinggi berulang kali!</p>
+            </div>
+
+            <div class="simulation-controls">
+                <!-- HAPUS BAGIAN CONTROL-GROUP UNTUK PILIHAN KETINGGIAN -->
+                <button class="start-btn" onclick="mulaiSimulasi()">🦘 Mulai Lompat</button>
+                <button class="reset-btn" onclick="resetSimulasi()">🔄 Berhenti</button>
+            </div>
+
+            <div class="simulation-area">
+                <!-- Lantai -->
+                <div class="floor">
+                    <div class="floor-label">LANTAI</div>
+                </div>
+
+                <!-- Trampolin -->
+                <div class="trampoline" id="trampoline">
+                    <img src="asset/trampolin.png" alt="Trampolin" class="trampoline-image">
+                    <div class="trampoline-label">TRAMPOLIN</div>
+                </div>
+
+                <!-- Manusia - LEBIH DEKAT DENGAN TRAMPOLIN -->
+                <div class="human" id="human">
+                    <img src="asset/manusialompat.png" alt="Manusia" class="human-image">
+                    <div class="human-label">MANUSIA</div>
+                </div>
+
+                <!-- Efek gaya pegas -->
+                <div class="spring-effect" id="springEffect"></div>
+            </div>
+
+            <div class="data-panel">
+                <div class="data-card">
+                    <h3>📊 Data Pengamatan</h3>
+                    <div class="data-grid">
+                        <!-- HAPUS DATA ITEM "Ketinggian Lompat" -->
+                        <div class="data-item">
+                            <span class="data-label">Tinggi Lompat:</span>
+                            <span class="data-value" id="jumpHeight">200px</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Gaya Pegas:</span>
+                            <span class="data-value" id="springForce">Kuat</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Jumlah Lompatan:</span>
+                            <span class="data-value" id="jumpCounter">0</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Status:</span>
+                            <span class="data-value" id="status">Siap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conclusion-section">
+                <div class="conclusion-card">
+                    <h3>💡 Kesimpulan</h3>
+                    <div class="conclusion-content">
+                        <p><strong>Trampolin menggunakan gaya pegas</strong> untuk mendorong manusia ke atas saat melompat.</p>
+                        <p><strong>Semakin kuat tekanan pada trampolin</strong>, semakin tinggi lompatan yang dihasilkan.</p>
+                        <p><strong>Gaya pegas menyimpan energi</strong> ketika trampolin tertekan dan melepaskannya saat kembali ke bentuk semula.</p>
+                        <p><strong>Lompatan berulang terjadi</strong> karena energi terus disimpan dan dilepaskan secara berantai.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script-pegas.js"></script>
+</body>
+</html>

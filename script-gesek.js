@@ -59,7 +59,7 @@ function mulaiSimulasi() {
     if (selectedSurface === 'aspal') {
         duration = 3000; // 3 detik untuk aspal (gesekan kecil)
     } else {
-        duration = 6000; // 6 detik untuk tanah (gesekan besar)
+        duration = 12000; // 6 detik untuk tanah (gesekan besar)
     }
     
     // Mulai timer

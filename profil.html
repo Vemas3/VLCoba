@@ -19,10 +19,9 @@
 
     <header class="profile-header">
         <div class="header-content">
-            <a href="index.html" class="back-btn">⬅️ Kembali</a>
             <div class="title">
-                <h1>PROFIL</h1>
-                <p>Identitas Pengajar Laboratorium Virtual SD</p>
+                <h1>PROFIL PENGAJAR</h1>
+                <p>Identitas Pengembang Laboratorium Virtual SD</p>
             </div>
             <div class="user-info">
                 <div class="user-photo">
@@ -128,6 +127,13 @@
                     </div>
                 </div>
             </div>
+
+            <!-- TOMBOL SELANJUTNYA -->
+            <div class="next-button-container">
+                <button class="next-button" onclick="lanjutKeMenuUtama()">
+                    🚀 Selanjutnya ke Menu Utama
+                </button>
+            </div>
         </div>
     </main>
 
@@ -136,6 +142,11 @@
     </footer>
 
     <script>
+        function lanjutKeMenuUtama() {
+            // Redirect ke index.html
+            window.location.href = 'index.html';
+        }
+
         function bukaProfileGuru() {
             window.location.href = 'profil.html';
         }

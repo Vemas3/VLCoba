@@ -1,4 +1,4 @@
-/* Styles khusus untuk simulasi gaya magnet */
+/* Styles khusus untuk simulasi gaya pegas */
 .simulasi-header {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
@@ -86,31 +86,9 @@
     flex-wrap: wrap;
 }
 
-.control-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.control-group label {
-    color: #2c5530;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-}
-
-.control-group select {
-    background: rgba(255, 255, 255, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 8px;
-    padding: 0.5rem 1rem;
-    color: #2c5530;
-    font-weight: 500;
-    cursor: pointer;
-}
-
 .start-btn, .reset-btn {
-    background: rgba(33, 150, 243, 0.3);
-    border: 1px solid rgba(33, 150, 243, 0.6);
+    background: rgba(255, 152, 0, 0.3);
+    border: 1px solid rgba(255, 152, 0, 0.6);
     padding: 0.8rem 1.5rem;
     border-radius: 25px;
     cursor: pointer;
@@ -120,7 +98,7 @@
 }
 
 .start-btn:hover, .reset-btn:hover {
-    background: rgba(33, 150, 243, 0.5);
+    background: rgba(255, 152, 0, 0.5);
     transform: translateY(-2px);
 }
 
@@ -132,41 +110,55 @@
 /* Simulation Area */
 .simulation-area {
     position: relative;
-    height: 400px;
-    background: rgba(255, 255, 255, 0.1);
+    height: 500px;
+    background: linear-gradient(to bottom, #87CEEB, #E0F7FA);
     border-radius: 15px;
     margin-bottom: 2rem;
     overflow: hidden;
     border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Meja eksperimen */
-.experiment-table {
+/* Lantai */
+.floor {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100px;
+    height: 50px;
     background: linear-gradient(to bottom, #8B4513, #A0522D);
     border-top: 4px solid #654321;
 }
 
-/* Magnet */
-.magnet {
+.floor-label {
     position: absolute;
-    bottom: 100px;
-    left: 100px;
-    z-index: 20;
-    transition: all 0.5s ease;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #2c5530;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.3rem 1rem;
+    border-radius: 15px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
-.magnet-image {
-    width: 120px;
+/* Trampolin */
+.trampoline {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.trampoline-image {
+    width: 200px;
     height: auto;
     filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
 }
 
-.magnet-label {
+.trampoline-label {
     position: absolute;
     top: -30px;
     left: 50%;
@@ -179,22 +171,30 @@
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
-/* Benda */
-.object {
-    position: absolute;
-    bottom: 100px;
-    left: 400px;
-    z-index: 15;
-    transition: all 1.5s ease-in-out;
+/* Efek trampolin tertekan */
+.trampoline.pressed .trampoline-image {
+    transform: translateX(-50%) scaleY(0.7) scaleX(1.1);
+    transition: transform 0.2s ease;
 }
 
-.object-image {
+/* Manusia - DI ATAS TRAMPOLIN */
+.human {
+    position: absolute;
+    bottom: 180px; /* POSISI DIAM DI ATAS TRAMPOLIN */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.human-image {
     width: 80px;
     height: auto;
     filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+    transition: transform 0.3s ease;
 }
 
-.object-label {
+.human-label {
     position: absolute;
     top: -25px;
     left: 50%;
@@ -207,61 +207,47 @@
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
-/* Paku */
-.paku .object-image {
-    width: 60px;
+/* Efek lompat */
+.human.jumping {
+    animation: jumpBounce 0.1s ease;
 }
 
-/* Penghapus */
-.penghapus .object-image {
-    width: 70px;
+@keyframes jumpBounce {
+    0%, 100% { 
+        transform: translateX(-50%) scale(1);
+    }
+    50% { 
+        transform: translateX(-50%) scale(0.95);
+    }
 }
 
-/* Medan magnet (efek visual) */
-.magnetic-field {
+/* Efek gaya pegas */
+.spring-effect {
     position: absolute;
-    bottom: 100px;
-    left: 180px;
-    width: 200px;
-    height: 100px;
-    background: radial-gradient(circle, rgba(33, 150, 243, 0.2) 0%, transparent 70%);
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 20px;
+    background: radial-gradient(circle, rgba(255, 152, 0, 0.3) 0%, transparent 70%);
     border-radius: 50%;
     opacity: 0;
-    transition: opacity 0.5s ease;
     z-index: 5;
 }
 
-.magnetic-field.active {
+.spring-effect.active {
     opacity: 1;
-    animation: magneticPulse 1s ease-in-out infinite;
+    animation: springPulse 0.5s ease-in-out;
 }
 
-@keyframes magneticPulse {
-    0%, 100% { transform: scale(1); opacity: 0.3; }
-    50% { transform: scale(1.1); opacity: 0.5; }
-}
-
-/* Efek tarikan magnet - MENEMPEL */
-.object.attracted {
-    z-index: 25;
-}
-
-.object.attached {
-    filter: brightness(1.2) drop-shadow(0 0 8px rgba(33, 150, 243, 0.6));
-    transform: scale(1.1);
-}
-
-/* Efek magnet aktif */
-.magnet.active {
-    animation: magnetGlow 1s ease-in-out infinite;
-}
-
-@keyframes magnetGlow {
+@keyframes springPulse {
     0%, 100% { 
-        filter: drop-shadow(0 0 5px rgba(33, 150, 243, 0.5));
+        transform: translateX(-50%) scale(1);
+        opacity: 0.3;
     }
     50% { 
-        filter: drop-shadow(0 0 15px rgba(33, 150, 243, 0.8));
+        transform: translateX(-50%) scale(1.2);
+        opacity: 0.6;
     }
 }
 
@@ -367,36 +353,19 @@
     }
 
     .simulation-area {
-        height: 350px;
+        height: 450px;
     }
 
-    .magnet-image {
-        width: 100px;
+    .trampoline-image {
+        width: 150px;
     }
 
-    .object-image {
+    .human-image {
         width: 60px;
     }
 
-    .paku .object-image {
-        width: 50px;
-    }
-
-    .penghapus .object-image {
-        width: 55px;
-    }
-
-    .magnet {
-        left: 50px;
-    }
-
-    .object {
-        left: 250px;
-    }
-
-    .magnetic-field {
-        left: 120px;
-        width: 150px;
+    .human {
+        bottom: 150px;
     }
 }
 
@@ -414,35 +383,18 @@
     }
 
     .simulation-area {
-        height: 300px;
+        height: 400px;
     }
 
-    .magnet-image {
-        width: 80px;
+    .trampoline-image {
+        width: 120px;
     }
 
-    .object-image {
+    .human-image {
         width: 50px;
     }
 
-    .paku .object-image {
-        width: 40px;
-    }
-
-    .penghapus .object-image {
-        width: 45px;
-    }
-
-    .magnet {
-        left: 30px;
-    }
-
-    .object {
-        left: 180px;
-    }
-
-    .magnetic-field {
-        left: 80px;
-        width: 120px;
+    .human {
+        bottom: 130px;
     }
 }

@@ -32,14 +32,14 @@ body {
 
 /* Header Styles */
 .main-header {
-    background: rgba(255, 255, 255, 0.2); /* Ubah dari 0.95 menjadi 0.2 (20% transparan) */
+    background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     padding: 1rem 2rem;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Tambahkan border bottom */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .header-content {
@@ -61,43 +61,7 @@ body {
     font-size: 1rem;
 }
 
-/* Identity Styles */
-.identity {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.photo-placeholder {
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.photo-placeholder:hover {
-    transform: scale(1.05);
-}
-
-.photo {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid #ffffff;
-    margin-bottom: 0.5rem;
-}
-
-.photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.photo-label {
-    font-size: 0.9rem;
-    color: #666;
-    font-weight: 500;
-}
+/* HAPUS BAGIAN IDENTITY STYLES */
 
 /* Main Menu Styles - TRANSPARAN 20% */
 .main-menu {
@@ -107,12 +71,12 @@ body {
 }
 
 .menu-container {
-    background: rgba(255, 255, 255, 0.2); /* Transparansi 20% */
+    background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(15px);
     border-radius: 20px;
     padding: 3rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Border glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .welcome-message {
@@ -124,14 +88,14 @@ body {
     color: #2c5530;
     font-size: 2.2rem;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8); /* Tambahkan shadow untuk kontras */
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
 }
 
 .welcome-message p {
     color: #2c5530;
     font-size: 1.2rem;
     font-weight: 500;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* Tambahkan shadow untuk kontras */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 /* Button Grid Styles */
@@ -217,6 +181,7 @@ body {
 .simulasi-btn {
     background: linear-gradient(135deg, rgba(102, 187, 106, 0.9), rgba(76, 175, 80, 0.9));
 }
+
 /* Quick Info Styles */
 .quick-info {
     display: grid;
@@ -227,7 +192,7 @@ body {
 .info-card {
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.3); /* Lebih transparan */
+    background: rgba(255, 255, 255, 0.3);
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -254,7 +219,7 @@ body {
 
 /* Footer Styles */
 .main-footer {
-    background: rgba(255, 255, 255, 0.2); /* Juga transparan */
+    background: rgba(255, 255, 255, 0.2);
     text-align: center;
     padding: 1.5rem;
     margin-top: 2rem;
