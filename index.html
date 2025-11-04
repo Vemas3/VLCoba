@@ -5,8 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laboratorium Virtual SD</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Redirect Script -->
+    <script>
+        // Cek jika user belum melihat cover page
+        if (!sessionStorage.getItem('coverShown')) {
+            // Redirect ke cover.html
+            window.location.href = 'cover.html';
+        }
+    </script>
+    <style>
+        /* Sembunyikan konten sementara untuk menghindari flash */
+        body {
+            visibility: hidden;
+        }
+        
+        /* Tampilkan setelah redirect check selesai */
+        body.loaded {
+            visibility: visible;
+        }
+    </style>
 </head>
 <body>
+    <!-- Background element lama dinonaktifkan via CSS -->
     <div class="background">
         <div class="science-elements">
             <div class="molecule"></div>
@@ -21,6 +42,7 @@
                 <h1>🔬 Laboratorium Virtual SD</h1>
                 <p>Belajar Jenis-Jenis Gaya untuk SD</p>
             </div>
+            <!-- HAPUS BAGIAN IDENTITY/PHOTO -->
         </div>
     </header>
 
@@ -71,5 +93,12 @@
     <footer class="main-footer">
         <p>© 2025 Laboratorium Virtual SD - Jenis-Jenis Gaya</p>
     </footer>
+
+    <script>
+        // Tampilkan body setelah semua script selesai
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
 </body>
 </html>

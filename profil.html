@@ -7,6 +7,26 @@
     <meta name="app-version" content="1.0.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style-profil.css">
+    
+    <!-- Redirect Script -->
+    <script>
+        // Cek jika user belum melihat cover page
+        if (!sessionStorage.getItem('coverShown')) {
+            // Redirect ke cover.html
+            window.location.href = 'cover.html';
+        }
+    </script>
+    <style>
+        /* Sembunyikan konten sementara untuk menghindari flash */
+        body {
+            visibility: hidden;
+        }
+        
+        /* Tampilkan setelah redirect check selesai */
+        body.loaded {
+            visibility: visible;
+        }
+    </style>
 </head>
 <body>
     <div class="background">
@@ -142,13 +162,14 @@
     </footer>
 
     <script>
+        // Tampilkan body setelah semua script selesai
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('loaded');
+        });
+
         function lanjutKeMenuUtama() {
             // Redirect ke index.html
             window.location.href = 'index.html';
-        }
-
-        function bukaProfileGuru() {
-            window.location.href = 'profil.html';
         }
     </script>
 </body>

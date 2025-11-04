@@ -235,10 +235,10 @@
     </div>
 
     <script>
+        // Set sessionStorage saat pertama kali buka cover
+        sessionStorage.setItem('coverShown', 'true');
+
         function mulaiBelajar() {
-            // Set sessionStorage untuk menandai bahwa cover sudah dilihat
-            sessionStorage.setItem('coverShown', 'true');
-            
             // Tambah efek loading sebelum pindah halaman
             const button = document.querySelector('.start-button');
             button.innerHTML = 'MEMUAT...';
