@@ -5,100 +5,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulasi Gaya Pegas - Virtual Lab Sains SD</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style-pegas.css">
+    <link rel="stylesheet" href="style-simulasi-drag.css">
+    
+    <!-- Redirect Script -->
+    <script>
+        if (!sessionStorage.getItem('coverShown')) {
+            window.location.href = 'cover.html';
+        }
+    </script>
+    <style>
+        body {
+            visibility: hidden;
+        }
+        body.loaded {
+            visibility: visible;
+        }
+    </style>
 </head>
 <body>
-    <div class="background">
-        <div class="science-elements">
-            <div class="element"></div>
-            <div class="element"></div>
-        </div>
-    </div>
-
-    <header class="simulasi-header">
+    <header class="simulasi-drag-header">
         <div class="header-content">
             <a href="simulasi.html" class="back-btn">⬅️ Kembali</a>
             <div class="title">
                 <h1>💨 SIMULASI GAYA PEGAS</h1>
-                <p>Eksperimen dengan Trampolin</p>
+                <p>Drag & Drop Objek untuk Eksperimen</p>
             </div>
         </div>
     </header>
 
-    <main class="simulasi-container">
-        <div class="experiment-area">
-            <div class="experiment-info">
-                <h2>🎯 Percobaan: Manusia Melompat di Trampolin</h2>
-                <p>Perhatikan bagaimana gaya pegas pada trampolin membuat manusia melompat tinggi berulang kali!</p>
+    <div class="simulasi-drag-container">
+        <!-- Sidebar Kiri - Objek Drag & Drop -->
+        <div class="objects-sidebar">
+            <h3 class="sidebar-title">🎯 Objek Percobaan</h3>
+            <div class="objects-grid">
+                <div class="drag-object" draggable="true" data-type="trampolin" data-src="asset/trampolin.png">
+                    <div class="object-icon">🛏️</div>
+                    <div class="object-name">Trampolin</div>
+                </div>
+                <div class="drag-object" draggable="true" data-type="manusia" data-src="asset/manusialompat.png">
+                    <div class="object-icon">👦</div>
+                    <div class="object-name">Manusia</div>
+                </div>
+                <div class="drag-object" draggable="true" data-type="bola" data-src="asset/bola.png">
+                    <div class="object-icon">🏀</div>
+                    <div class="object-name">Bola</div>
+                </div>
+                <div class="drag-object" draggable="true" data-type="pegas" data-src="asset/pegas.png">
+                    <div class="object-icon">🌀</div>
+                    <div class="object-name">Pegas</div>
+                </div>
+                <div class="drag-object" draggable="true" data-type="beban" data-src="asset/beban.png">
+                    <div class="object-icon">⚖️</div>
+                    <div class="object-name">Beban</div>
+                </div>
             </div>
+        </div>
 
-            <div class="simulation-controls">
-                <!-- HAPUS BAGIAN CONTROL-GROUP UNTUK PILIHAN KETINGGIAN -->
-                <button class="start-btn" onclick="mulaiSimulasi()">🦘 Mulai Lompat</button>
-                <button class="reset-btn" onclick="resetSimulasi()">🔄 Berhenti</button>
-            </div>
+        <!-- Area Simulasi Tengah -->
+        <div class="simulation-area" id="simulationArea">
+            <div class="drop-zone" id="mainDropZone"></div>
+        </div>
 
-            <div class="simulation-area">
-                <!-- Lantai -->
-                <div class="floor">
-                    <div class="floor-label">LANTAI</div>
-                </div>
-
-                <!-- Trampolin -->
-                <div class="trampoline" id="trampoline">
-                    <img src="asset/trampolin.png" alt="Trampolin" class="trampoline-image">
-                    <div class="trampoline-label">TRAMPOLIN</div>
-                </div>
-
-                <!-- Manusia - LEBIH DEKAT DENGAN TRAMPOLIN -->
-                <div class="human" id="human">
-                    <img src="asset/manusialompat.png" alt="Manusia" class="human-image">
-                    <div class="human-label">MANUSIA</div>
-                </div>
-
-                <!-- Efek gaya pegas -->
-                <div class="spring-effect" id="springEffect"></div>
+        <!-- Sidebar Kanan - Kontrol -->
+        <div class="controls-sidebar">
+            <h3 class="controls-title">🎮 Kontrol Simulasi</h3>
+            
+            <div class="control-buttons">
+                <button class="control-btn play" onclick="jalankanSimulasi()">
+                    ▶️ Jalankan Simulasi
+                </button>
+                <button class="control-btn reset" onclick="resetSimulasi()">
+                    🔄 Reset Semua
+                </button>
+                <button class="control-btn" onclick="hapusSemuaObjek()">
+                    🗑️ Hapus Objek
+                </button>
             </div>
 
             <div class="data-panel">
-                <div class="data-card">
-                    <h3>📊 Data Pengamatan</h3>
-                    <div class="data-grid">
-                        <!-- HAPUS DATA ITEM "Ketinggian Lompat" -->
-                        <div class="data-item">
-                            <span class="data-label">Tinggi Lompat:</span>
-                            <span class="data-value" id="jumpHeight">200px</span>
-                        </div>
-                        <div class="data-item">
-                            <span class="data-label">Gaya Pegas:</span>
-                            <span class="data-value" id="springForce">Kuat</span>
-                        </div>
-                        <div class="data-item">
-                            <span class="data-label">Jumlah Lompatan:</span>
-                            <span class="data-value" id="jumpCounter">0</span>
-                        </div>
-                        <div class="data-item">
-                            <span class="data-label">Status:</span>
-                            <span class="data-value" id="status">Siap</span>
-                        </div>
+                <h3>📊 Data Pengamatan</h3>
+                <div class="data-grid">
+                    <div class="data-item">
+                        <span class="data-label">Objek di Area:</span>
+                        <span class="data-value" id="objectCount">0</span>
                     </div>
-                </div>
-            </div>
-
-            <div class="conclusion-section">
-                <div class="conclusion-card">
-                    <h3>💡 Kesimpulan</h3>
-                    <div class="conclusion-content">
-                        <p><strong>Trampolin menggunakan gaya pegas</strong> untuk mendorong manusia ke atas saat melompat.</p>
-                        <p><strong>Semakin kuat tekanan pada trampolin</strong>, semakin tinggi lompatan yang dihasilkan.</p>
-                        <p><strong>Gaya pegas menyimpan energi</strong> ketika trampolin tertekan dan melepaskannya saat kembali ke bentuk semula.</p>
-                        <p><strong>Lompatan berulang terjadi</strong> karena energi terus disimpan dan dilepaskan secara berantai.</p>
+                    <div class="data-item">
+                        <span class="data-label">Status:</span>
+                        <span class="data-value" id="simStatus">Siap</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Gaya Pegas:</span>
+                        <span class="data-value" id="springForce">-</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Tinggi Lompat:</span>
+                        <span class="data-value" id="jumpHeight">-</span>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 
-    <script src="script-pegas.js"></script>
+    <script src="script-simulasi-drag.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('loaded');
+            initDragAndDrop();
+        });
+
+        function jalankanSimulasi() {
+            const objects = document.querySelectorAll('.dropped-object');
+            if (objects.length === 0) {
+                alert('🚫 Silakan tarik objek ke area simulasi terlebih dahulu!');
+                return;
+            }
+
+            document.getElementById('simStatus').textContent = 'Berjalan...';
+            
+            const trampolin = document.querySelector('.dropped-object[data-type="trampolin"]');
+            const manusia = document.querySelector('.dropped-object[data-type="manusia"]');
+            const bola = document.querySelector('.dropped-object[data-type="bola"]');
+            
+            if (trampolin && (manusia || bola)) {
+                document.getElementById('springForce').textContent = 'Kuat';
+                document.getElementById('jumpHeight').textContent = 'Tinggi';
+                
+                // Animasi lompat
+                if (manusia) {
+                    manusia.style.transition = 'all 1s ease-in-out';
+                    setTimeout(() => {
+                        manusia.style.transform = 'translateY(-100px)';
+                    }, 500);
+                    setTimeout(() => {
+                        manusia.style.transform = 'translateY(0)';
+                    }, 1500);
+                }
+                
+                if (bola) {
+                    bola.style.transition = 'all 0.8s ease-in-out';
+                    setTimeout(() => {
+                        bola.style.transform = 'translateY(-80px)';
+                    }, 300);
+                    setTimeout(() => {
+                        bola.style.transform = 'translateY(0)';
+                    }, 1100);
+                }
+                
+                setTimeout(() => {
+                    document.getElementById('simStatus').textContent = 'Selesai';
+                    alert('🎉 Simulasi selesai! Gaya pegas berhasil mendorong benda ke atas.');
+                }, 2000);
+            } else {
+                alert('⚠️ Untuk simulasi gaya pegas, dibutuhkan trampolin dan manusia/bola!');
+                document.getElementById('simStatus').textContent = 'Siap';
+            }
+        }
+
+        function resetSimulasi() {
+            document.querySelectorAll('.dropped-object').forEach(obj => obj.remove());
+            document.getElementById('objectCount').textContent = '0';
+            document.getElementById('simStatus').textContent = 'Siap';
+            document.getElementById('springForce').textContent = '-';
+            document.getElementById('jumpHeight').textContent = '-';
+        }
+
+        function hapusSemuaObjek() {
+            document.querySelectorAll('.dropped-object').forEach(obj => obj.remove());
+            document.getElementById('objectCount').textContent = '0';
+        }
+    </script>
 </body>
 </html>
