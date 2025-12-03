@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Gaya Magnet - Virtual Lab Sains SD</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-simulasi-drag.css">
+    
+    <!-- Redirect Script -->
+    <script>
+        if (!sessionStorage.getItem('coverShown')) {
+            window.location.href = 'cover.html';
+        }
+    </script>
+    <style>
+        body { visibility: hidden; }
+        body.loaded { visibility: visible; }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+    </style>
+</head>
+
+<body>
+<header class="simulasi-drag-header">
+    <div class="header-content">
+        <a href="simulasi.html" class="back-btn">⬅️ Kembali</a>
+        <div class="title">
+            <h1>🧲 SIMULASI GAYA MAGNET</h1>
+            <p>Drag & Drop Objek untuk Eksperimen</p>
+        </div>
+    </div>
+</header>
+
+<div class="simulasi-drag-container">
+
+    <!-- Sidebar kiri -->
+    <div class="objects-sidebar">
+        <h3 class="sidebar-title">🎯 Objek Percobaan</h3>
+        <div class="objects-grid">
+
+            <div class="drag-object" draggable="true" data-type="magnet" data-src="asset/magnet.png">
+                <div class="object-icon">🧲</div>
+                <div class="object-name">Magnet</div>
+            </div>
+
+            <div class="drag-object" draggable="true" data-type="paku" data-src="asset/paku.png">
+                <div class="object-icon">📌</div>
+                <div class="object-name">Paku</div>
+            </div>
+
+            <div class="drag-object" draggable="true" data-type="penghapus" data-src="asset/penghapus.png">
+                <div class="object-icon">🧽</div>
+                <div class="object-name">Penghapus</div>
+            </div>
+
+            <div class="drag-object" draggable="true" data-type="bola" data-src="asset/bola.png">
+                <div class="object-icon">🏀</div>
+                <div class="object-name">Bola</div>
+            </div>
+
+            <div class="drag-object" draggable="true" data-type="meja" data-src="asset/meja.png">
+                <div class="object-icon">🪑</div>
+                <div class="object-name">Meja</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Area simulasi -->
+    <div class="simulation-area" id="simulationArea">
+        <div class="drop-zone" id="mainDropZone"></div>
+    </div>
+
+    <!-- Kontrol Sidebar -->
+    <div class="controls-sidebar">
+        <h3 class="controls-title">🎮 Kontrol Simulasi</h3>
+        
+        <div class="control-buttons">
+            <button class="control-btn play" onclick="jalankanSimulasi()">▶️ Jalankan Simulasi</button>
+            <button class="control-btn reset" onclick="resetSimulasi()">🔄 Reset Semua</button>
+            <button class="control-btn" onclick="hapusSemuaObjek()">🗑️ Hapus Objek</button>
+        </div>
+
+        <div class="data-panel">
+            <h3>📊 Data Pengamatan</h3>
+            <div class="data-grid">
+                <div class="data-item">
+                    <span class="data-label">Objek di Area:</span>
+                    <span class="data-value" id="objectCount">0</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Status:</span>
+                    <span class="data-value" id="simStatus">Siap</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Gaya Magnet:</span>
+                    <span class="data-value" id="magneticForce">-</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Hasil:</span>
+                    <span class="data-value" id="result">-</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- DRAG SCRIPT -->
+<script src="script-simulasi-drag.js"></script>
+
+<!-- ===== FINAL FIX SIMULASI MAGNET ===== -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.classList.add('loaded');
+    initDragAndDrop();
+});
+
+// ===============================
+//   🧲 FINAL FIX — TARIK PAKU KE KIRI
+// ===============================
+function jalankanSimulasi() {
+
+    const magnet = document.querySelector('.dropped-object[data-type="magnet"]');
+    const paku = document.querySelector('.dropped-object[data-type="paku"]');
+    const penghapus = document.querySelector('.dropped-object[data-type="penghapus"]');
+
+    document.getElementById('simStatus').textContent = 'Berjalan...';
+
+    if (!magnet || (!paku && !penghapus)) {
+        alert('⚠️ Letakkan magnet dan paku/penghapus dahulu!');
+        document.getElementById('simStatus').textContent = 'Siap';
+        return;
+    }
+
+    document.getElementById('magneticForce').textContent = 'Aktif';
+
+    // =========================
+    // CASE 1: PAKU → TERTARIK
+    // =========================
+    if (paku) {
+
+        document.getElementById('result').textContent = 'Menarik';
+
+        const areaRect = document.getElementById('simulationArea').getBoundingClientRect();
+        const magnetRect = magnet.getBoundingClientRect();
+        const pakuRect = paku.getBoundingClientRect();
+
+        // Posisi akhir (menempel pada sisi kanan magnet)
+        const finalX = (magnetRect.right - areaRect.left) - (pakuRect.width * 0.2);
+        const finalY = (magnetRect.top - areaRect.top) + (magnetRect.height / 2) - (pakuRect.height / 2);
+
+        paku.style.transition = "all 0.9s ease-out";
+        paku.style.left = finalX + "px";
+        paku.style.top = finalY + "px";
+
+        setTimeout(() => {
+            document.getElementById('simStatus').textContent = 'Selesai';
+            alert("🎉 Magnet menarik paku! Paku menempel karena besi bersifat magnetis.");
+        }, 1200);
+
+        return;
+    }
+
+    // =========================
+    // CASE 2: PENGHAPUS → TIDAK TERTARIK
+    // =========================
+    if (penghapus) {
+
+        document.getElementById('result').textContent = 'Tidak Menarik';
+
+        penghapus.style.animation = 'shake 0.4s ease-in-out 3';
+
+        setTimeout(() => {
+            document.getElementById('simStatus').textContent = 'Selesai';
+            alert("❌ Penghapus tidak tertarik! Karena tidak terbuat dari logam.");
+        }, 1500);
+
+        return;
+    }
+}
+
+// ===============================
+// RESET & DELETE
+// ===============================
+function resetSimulasi() {
+    document.querySelectorAll('.dropped-object').forEach(obj => obj.remove());
+    document.getElementById('objectCount').textContent = '0';
+    document.getElementById('simStatus').textContent = 'Siap';
+    document.getElementById('magneticForce').textContent = '-';
+    document.getElementById('result').textContent = '-';
+}
+
+function hapusSemuaObjek() {
+    document.querySelectorAll('.dropped-object').forEach(obj => obj.remove());
+    document.getElementById('objectCount').textContent = '0';
+}
+</script>
+
+</body>
+</html>
